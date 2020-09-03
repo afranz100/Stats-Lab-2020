@@ -7,3 +7,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Lab 2: 
+
+## Reviewing lab 1
+
