@@ -9,5 +9,58 @@ knitr::opts_chunk$set(echo = TRUE)
 
 # Lab 2: 
 
-## Reviewing lab 1
+## Reviewing loops
+-the iterateror will go into the 
+```{r}
+thesequence <- 1:10
+for (i in thesequence) {
+  print(i)
+}
+#The iterator, i, will go into the sequence and then do the operation defined in the brackets. Iterator will be the value that it takes on in the sequence
+
+```
+
+```{r}
+
+vector1 <- c()
+thesequence <- 1:10
+for (i in thesequence) {
+  vector1[i] <- i
+}
+print(vector1)
+
+#by putting print outside of the brackets, you only get the final vector printed
+```
+
+## Making a custom mean function 
+```{r}
+# A long-form mean function that shows each step
+my_mean <- function(x) {
+  sum_x    <- sum(x) 
+  length_x <- length(x) 
+  mean_x   <- sum_x/length_x
+  return(mean_x) 
+}
+
+my_mean(1:10)
+
+```
+
+##Importing data 
+
+```{r}
+library(ggplot2)
+library(gapminder)
+library(dplyr)
+gapminder_data <- read.table("open_data/gapminder.csv",
+                             sep = ",",
+                             header = TRUE )
+
+group_means <- gapminder_data %>%
+                group_by(continent) %>%
+                summarize(mean_lifeExp = mean(lifeExp))
+
+knitr::kable(group_means)
+  #this command creates a table of the final values
+```
 
